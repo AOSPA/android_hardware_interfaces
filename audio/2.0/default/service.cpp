@@ -23,7 +23,9 @@
 #include <android/hardware/soundtrigger/2.0/ISoundTriggerHw.h>
 #include <android/hardware/broadcastradio/1.0/IBroadcastRadioFactory.h>
 #include <android/hardware/broadcastradio/1.1/IBroadcastRadioFactory.h>
+#ifdef ENABLE_SPLIT_A2DP
 #include <com/qualcomm/qti/bluetooth_audio/1.0/IBluetoothAudio.h>
+#endif /* ENABLE_SPLIT_A2DP */
 
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
@@ -33,7 +35,9 @@ using android::hardware::audio::effect::V2_0::IEffectsFactory;
 using android::hardware::audio::V2_0::IDevicesFactory;
 using android::hardware::soundtrigger::V2_0::ISoundTriggerHw;
 using android::hardware::registerPassthroughServiceImplementation;
+#ifdef ENABLE_SPLIT_A2DP
 using com::qualcomm::qti::bluetooth_audio::V1_0::IBluetoothAudio;
+#endif /* ENABLE_SPLIT_A2DP */
 
 namespace broadcastradio = android::hardware::broadcastradio;
 
@@ -55,8 +59,10 @@ int main(int /* argc */, char* /* argv */ []) {
     // Soundtrigger and FM radio might be not present.
     status = registerPassthroughServiceImplementation<ISoundTriggerHw>();
     ALOGE_IF(status != OK, "Error while registering soundtrigger service: %d", status);
+#ifdef ENABLE_SPLIT_A2DP
     status = registerPassthroughServiceImplementation<IBluetoothAudio>();
     ALOGE_IF(status != OK, "Error while registering bluetooth_audio service: %d", status);
+#endif /* ENABLE_SPLIT_A2DP */
     if (useBroadcastRadioFutureFeatures) {
         status = registerPassthroughServiceImplementation<
             broadcastradio::V1_1::IBroadcastRadioFactory>();

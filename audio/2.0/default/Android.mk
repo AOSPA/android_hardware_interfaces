@@ -77,7 +77,12 @@ LOCAL_SHARED_LIBRARIES := \
     android.hardware.soundtrigger@2.0 \
     android.hardware.broadcastradio@1.0 \
     android.hardware.broadcastradio@1.1 \
+
+ifeq ($(ENABLE_SPLIT_A2DP),true)
+LOCAL_CFLAGS += -DENABLE_SPLIT_A2DP
+LOCAL_SHARED_LIBRARIES := \
     com.qualcomm.qti.bluetooth_audio@1.0_vendor
+endif
 
 ifeq ($(strip $(AUDIOSERVER_MULTILIB)),)
 LOCAL_MULTILIB := 32
