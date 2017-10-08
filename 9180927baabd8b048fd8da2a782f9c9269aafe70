@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e77b5888_312d8694",
+        "filename": "audio/2.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2017-10-08T01:20:29Z",
+      "side": 1,
+      "message": "Remove the backslash here please",
+      "revId": "9180927baabd8b048fd8da2a782f9c9269aafe70",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0287799b_1691c8ed",
+        "filename": "audio/2.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2017-10-08T01:20:29Z",
+      "side": 1,
+      "message": "This should be +\u003d",
+      "revId": "9180927baabd8b048fd8da2a782f9c9269aafe70",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
+    }
+  ]
+}
