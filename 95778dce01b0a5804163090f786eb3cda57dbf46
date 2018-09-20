@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f08593c5_20d8aab5",
+        "filename": "audio/common/all-versions/default/service/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2018-09-20T04:48:19Z",
+      "side": 1,
+      "message": "unlikely that anyone is building with BSP but ok",
+      "revId": "95778dce01b0a5804163090f786eb3cda57dbf46",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
+    }
+  ]
+}
