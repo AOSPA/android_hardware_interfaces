@@ -21,11 +21,12 @@
 #include <android/hardware/graphics/composer/2.1/IComposer.h>
 
 #include <binder/ProcessState.h>
+#include <composer-passthrough/2.1/HwcLoader.h>
 #include <hidl/LegacySupport.h>
 #include <hwbinder/ProcessState.h>
 
 using android::hardware::graphics::composer::V2_1::IComposer;
-using android::hardware::defaultPassthroughServiceImplementation;
+using android::hardware::graphics::composer::V2_1::passthrough::HwcLoader;
 
 int main() {
     // the conventional HAL might start binder services
@@ -45,5 +46,19 @@ int main() {
     android::hardware::ProcessState::initWithMmapSize((size_t)(32768));
 #endif
 
-    return defaultPassthroughServiceImplementation<IComposer>(4);
+    android::hardware::configureRpcThreadpool(4, true /* will join */);
+
+    android::sp<IComposer> composer = HwcLoader::load();
+    if (composer == nullptr) {
+        return 1;
+    }
+    if (composer->registerAsService() != android::NO_ERROR) {
+        ALOGE("failed to register service");
+        return 1;
+    }
+
+    android::hardware::joinRpcThreadpool();
+
+    ALOGE("service is terminating");
+    return 1;
 }
