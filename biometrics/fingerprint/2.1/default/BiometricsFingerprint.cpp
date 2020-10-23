@@ -215,6 +215,10 @@ fingerprint_device_t* BiometricsFingerprint::openHal() {
     int err;
     const hw_module_t *hw_mdl = nullptr;
     ALOGD("Opening fingerprint hal library...");
+    #ifdef BOARD_FINGERPRINT_VENDOR
+        #undef FINGERPRINT_HARDWARE_MODULE_ID
+        #define FINGERPRINT_HARDWARE_MODULE_ID BOARD_FINGERPRINT_VENDOR
+    #endif
     if (0 != (err = hw_get_module(FINGERPRINT_HARDWARE_MODULE_ID, &hw_mdl))) {
         ALOGE("Can't open fingerprint HW Module, error: %d", err);
         return nullptr;
