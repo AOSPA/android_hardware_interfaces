@@ -36,7 +36,7 @@ static constexpr uint32_t kMaxGscanFrequenciesForBand = 64;
 static constexpr uint32_t kLinkLayerStatsDataMpduSizeThreshold = 128;
 static constexpr uint32_t kMaxWakeReasonStatsArraySize = 32;
 static constexpr uint32_t kMaxRingBuffers = 10;
-static constexpr uint32_t kMaxStopCompleteWaitMs = 500;
+static constexpr uint32_t kMaxStopCompleteWaitMs = 2000;
 static constexpr char kDriverPropName[] = "wlan.driver.status";
 
 // Helper function to create a non-const char* for legacy Hal API's.
@@ -411,6 +411,7 @@ wifi_error WifiLegacyHal::stop(
         // stopped.
         invalidate();
         iface_tool_.lock()->SetWifiUpState(false);
+        LOG(ERROR) << "SetWifiUpState(false) completed";
         on_stop_complete_user_callback();
         is_started_ = false;
     };
