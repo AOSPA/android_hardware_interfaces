@@ -625,7 +625,23 @@ WifiStaIface::getDebugRxPacketFatesInternal() {
 
 WifiStatus WifiStaIface::setMacAddressInternal(
     const std::array<uint8_t, 6>& mac) {
+#ifndef WIFI_AVOID_IFACE_RESET_MAC_CHANGE
+    if (!iface_util_.lock()->setUpState(ifname_, false)) {
+        return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
+    }
+#endif
     bool status = iface_util_.lock()->setMacAddress(ifname_, mac);
+#ifndef WIFI_AVOID_IFACE_RESET_MAC_CHANGE
+    if (!iface_util_.lock()->setUpState(ifname_, true)) {
+        LOG(INFO) << "Wait for driver ready and try to set iface UP again";
+        if (legacy_hal_.lock()->waitForDriverReady() !=
+                legacy_hal::WIFI_SUCCESS ||
+            !iface_util_.lock()->setUpState(ifname_, true)) {
+            return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
+        }
+    }
+    iface_util_.lock()->onStateToggleOffOn(ifname_);
+#endif
     if (!status) {
         return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
     }

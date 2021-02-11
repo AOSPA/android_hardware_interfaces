@@ -375,6 +375,8 @@ class WifiLegacyHal {
                                               wifi_interface_type iftype);
     virtual wifi_error deleteVirtualInterface(const std::string& ifname);
 
+    virtual wifi_error waitForDriverReady();
+
    private:
     // Retrieve interface handles for all the available interfaces.
     wifi_error retrieveIfaceHandles();

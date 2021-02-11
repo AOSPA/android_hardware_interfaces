@@ -1462,6 +1462,10 @@ wifi_error WifiLegacyHal::handleVirtualInterfaceCreateOrDeleteStatus(
     return status;
 }
 
+wifi_error WifiLegacyHal::waitForDriverReady() {
+    return global_func_table_.wifi_wait_for_driver_ready();
+}
+
 void WifiLegacyHal::invalidate() {
     global_handle_ = nullptr;
     iface_name_to_handle_.clear();

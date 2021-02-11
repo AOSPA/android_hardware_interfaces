@@ -61,6 +61,7 @@ class WifiIfaceUtil {
     virtual void unregisterIfaceEventHandlers(const std::string& iface_name);
     virtual bool setUpState(const std::string& iface_name, bool request_up);
     virtual unsigned ifNameToIndex(const std::string& iface_name);
+    virtual void onStateToggleOffOn(const std::string& iface_name);
 
    private:
     std::array<uint8_t, 6> createRandomMacAddress();
