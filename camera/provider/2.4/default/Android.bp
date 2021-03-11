@@ -37,7 +37,6 @@ cc_library_shared {
         "camera.device@3.5-impl_headers",
     ],
     export_include_dirs: ["."],
-    sdclang: false, // See b/163842697
     // Since this framework module has been forked to depend on a vendor
     // proprietary library, we exclude this module from the vendor snapshot so
     // that it will be built from source as part of the vendor image build.

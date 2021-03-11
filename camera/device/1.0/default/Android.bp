@@ -32,7 +32,6 @@ cc_library_shared {
         "media_plugin_headers",
     ],
     export_include_dirs: ["."],
-    sdclang: false, // See b/163842697
     // Since this platform module has been forked to depend on a vendor
     // proprietary library, we exclude it from the vendor snapshot so that it
     // will be built from source as part of the vendor build.
