@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "017484d7_aca758e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-02-01T13:25:36Z",
+      "side": 1,
+      "message": "can you review Tim and Wei\u0027s comments here https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1549674/1#message-9d9cde989a67c1202e2c3a62221c72492ca68ba2\n\nI\u0027m curious if this is still an improvement. they\u0027re saying it shouldn\u0027t be and are interested in looking at traces and us trying their memlatency governor settings.",
+      "revId": "fd2ee3cf250c7ce86d6a5c6f3dc162ca9fd786b2",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
