@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f801077c_4887b771",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2022-08-26T18:28:21Z",
+      "side": 1,
+      "message": "seems to work\n\nandroid.hardware.audio.service: ELF 32-bit",
+      "revId": "a3c0d3840bfc7869907cf9c5e6b759e0b3a30c77",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
