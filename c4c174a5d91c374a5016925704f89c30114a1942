@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d263311e_ddca72ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-10-31T21:56:56Z",
+      "side": 1,
+      "message": "not used on devices with custom fingerprint hals, but it will improve those that use this alone.",
+      "revId": "c4c174a5d91c374a5016925704f89c30114a1942",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
