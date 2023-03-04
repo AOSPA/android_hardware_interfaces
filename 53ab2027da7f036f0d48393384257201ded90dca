@@ -16,6 +16,24 @@
       "message": "I don\u0027t remember why I rejected this. did we have a better fix?",
       "revId": "53ab2027da7f036f0d48393384257201ded90dca",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3d22d11_80b9945f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-03-04T17:20:47Z",
+      "side": 1,
+      "message": "We switched back to bt audio hidl in qc/common, which doesn\u0027t have this issue",
+      "parentUuid": "a9285722_478b2d6e",
+      "revId": "53ab2027da7f036f0d48393384257201ded90dca",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
