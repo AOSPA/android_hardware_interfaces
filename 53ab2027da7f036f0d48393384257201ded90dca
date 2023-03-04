@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9285722_478b2d6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-03-04T16:24:25Z",
+      "side": 1,
+      "message": "I don\u0027t remember why I rejected this. did we have a better fix?",
+      "revId": "53ab2027da7f036f0d48393384257201ded90dca",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
