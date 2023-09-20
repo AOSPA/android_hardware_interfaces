@@ -48,3 +48,20 @@ cc_library_static {
     whole_static_libs: ["android.hardware.camera.common-helper"],
     sdclang: false,
 }
+
+soong_config_module_type {
+    name: "camera_override_legacy_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "camera_override_legacy",
+    bool_variables: ["target_camera_override_format_legacy"],
+    properties: ["cppflags"],
+}
+
+camera_override_legacy_cc_defaults {
+    name: "camera_override_legacy_defaults",
+    soong_config_variables: {
+        target_camera_override_format_legacy: {
+            cppflags: ["-DTARGET_CAMERA_OVERRIDE_FORMAT_LEGACY"],
+        },
+    },
+}
