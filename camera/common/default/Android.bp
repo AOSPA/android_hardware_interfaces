@@ -48,3 +48,20 @@ cc_library_static {
     whole_static_libs: ["android.hardware.camera.common-helper"],
     sdclang: false,
 }
+
+soong_config_module_type {
+    name: "camera_override_format_from_reserved",
+    module_type: "cc_defaults",
+    config_namespace: "camoverReserved",
+    bool_variables: ["camera_override_format_from_reserved"],
+    properties: ["cppflags"],
+}
+
+camera_override_format_from_reserved {
+    name: "camera_override_format_from_reserved_defaults",
+    soong_config_variables: {
+        camera_override_format_from_reserved: {
+            cppflags: ["-DTARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED"],
+        },
+    },
+}
