@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7bb0de1_055e3a8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-10-08T19:27:07Z",
+      "side": 1,
+      "message": "this isn\u0027t a full revert, can we do a better message",
+      "revId": "796ffa27fd2131c2e45d5ebae2c9edf994fef541",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
