@@ -70,10 +70,6 @@ cc_binary {
 	    ]
 	}
     },
-
-    defaults: [
-        "android_hardware_audio_config_defaults",
-    ],
 }
 
 cc_binary {
@@ -100,6 +96,10 @@ cc_binary {
         "liblog",
         "libutils",
         "libhardware",
+    ],
+
+    defaults: [
+        "android_hardware_audio_config_defaults",
     ],
 }
 
