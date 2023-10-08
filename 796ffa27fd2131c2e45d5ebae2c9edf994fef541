@@ -16,6 +16,23 @@
       "message": "this isn\u0027t a full revert, can we do a better message",
       "revId": "796ffa27fd2131c2e45d5ebae2c9edf994fef541",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08b9cd10_18a448de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-10-08T21:13:16Z",
+      "side": 1,
+      "message": "ignore previous comment",
+      "revId": "796ffa27fd2131c2e45d5ebae2c9edf994fef541",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
