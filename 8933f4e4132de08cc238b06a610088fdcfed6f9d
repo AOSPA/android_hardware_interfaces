@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99de31ec_f865c6c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-17T09:49:21Z",
+      "side": 1,
+      "message": "This fixes LDAC codes issue on lahaina",
+      "revId": "8933f4e4132de08cc238b06a610088fdcfed6f9d",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
