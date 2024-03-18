@@ -16,6 +16,24 @@
       "message": "is this actually a thing on newer platforms? I have the dlopen too but audio works fine.",
       "revId": "ea566f3bfbe77def906a44328c53ba095633a5ca",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f0c9cb_5dc86cb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000488
+      },
+      "writtenOn": "2024-03-18T05:27:39Z",
+      "side": 1,
+      "message": "yeah audio works just fine without it as well. Just wanted to get around the logs.",
+      "parentUuid": "918ec235_30f51cef",
+      "revId": "ea566f3bfbe77def906a44328c53ba095633a5ca",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
