@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f26f2f2_ce6a3110",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000579
+      },
+      "writtenOn": "2024-10-24T13:36:49Z",
+      "side": 1,
+      "message": "3210850: Do not start fingerprint HAL if it is unstartable | https://android-review.googlesource.com/c/platform/frameworks/base/+/3210850 this should be fine as well",
+      "revId": "b7afbfbeeba870a5a700fab793bb875b2fb87d5d",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
