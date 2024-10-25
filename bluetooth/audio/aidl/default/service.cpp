@@ -27,9 +27,6 @@ using ::aidl::android::hardware::bluetooth::audio::
 
 extern "C" __attribute__((visibility("default"))) binder_status_t
 createIBluetoothAudioProviderFactory() {
-binder_status_t aidl_status_war = STATUS_UNKNOWN_ERROR;
-ALOGW_IF(aidl_status_war == STATUS_OK, "Could not register AOSP HAL, status=%d", aidl_status_war);
-  return aidl_status_war;
   auto factory = ::ndk::SharedRefBase::make<BluetoothAudioProviderFactory>();
   const std::string instance_name =
       std::string() + BluetoothAudioProviderFactory::descriptor + "/default";
