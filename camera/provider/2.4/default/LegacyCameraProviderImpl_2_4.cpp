@@ -323,6 +323,8 @@ bool LegacyCameraProviderImpl_2_4::initialize() {
 
     mNumberOfLegacyCameras = mModule->getNumberOfCameras();
     for (int i = 0; i < mNumberOfLegacyCameras; i++) {
+        mLegacyCameras.insert(i);
+
         uint32_t device_version;
         auto rc = mModule->getCameraDeviceVersion(i, &device_version);
         if (rc != NO_ERROR) {
@@ -466,7 +468,7 @@ Return<Status> LegacyCameraProviderImpl_2_4::setCallback(
     for (auto const& statusPair : mCameraStatusMap) {
         int id = std::stoi(statusPair.first);
         auto status = static_cast<CameraDeviceStatus>(statusPair.second);
-        if (id >= mNumberOfLegacyCameras && status != CameraDeviceStatus::NOT_PRESENT) {
+        if (!mLegacyCameras.contains(id) && status != CameraDeviceStatus::NOT_PRESENT) {
             addDeviceNames(id, status, true);
         }
     }
@@ -484,7 +486,7 @@ Return<void> LegacyCameraProviderImpl_2_4::getCameraIdList(
         ICameraProvider::getCameraIdList_cb _hidl_cb) {
     std::vector<hidl_string> deviceNameList;
     for (auto const& deviceNamePair : mCameraDeviceNames) {
-        if (std::stoi(deviceNamePair.first) >= mNumberOfLegacyCameras) {
+        if (!mLegacyCameras.contains(std::stoi(deviceNamePair.first))) {
             // External camera devices must be reported through the device status change callback,
             // not in this list.
             continue;
