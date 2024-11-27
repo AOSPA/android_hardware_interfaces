@@ -19,6 +19,7 @@
 #define LOG_TAG "AHAL_ModulePrimary"
 #include <Utils.h>
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 
 #include "core-impl/ModulePrimary.h"
 #include "core-impl/StreamPrimary.h"
