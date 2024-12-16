@@ -32,6 +32,7 @@ cc_library_shared {
         "camera.device@3.3-impl",
         "camera.device@3.4-impl",
         "camera.device@3.5-impl",
+        "libbase",
         "libcamera_metadata",
         "libcutils",
         "libhardware",
