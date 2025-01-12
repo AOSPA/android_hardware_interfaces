@@ -33,6 +33,24 @@
       "message": "i dont think the default behavior changes here it is set to true by soong config default.",
       "revId": "24d2107ec72c8b6f2470fb574eb2e72664550923",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23b1cc44_4f150132",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000895
+      },
+      "writtenOn": "2025-01-12T15:04:23Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "e2e3db46_b776c1df",
+      "revId": "24d2107ec72c8b6f2470fb574eb2e72664550923",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
