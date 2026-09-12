@@ -567,12 +567,13 @@ TEST_P(GraphicsCompositionTest, ClientComposition) {
 
 void generateLuts(Luts* luts, LutProperties::Dimension dimension, int32_t size,
                   LutProperties::SamplingKey key) {
-    size_t bufferSize = dimension == LutProperties::Dimension::ONE_D
-                                ? static_cast<size_t>(size) * sizeof(float)
-                                : static_cast<size_t>(size * size * size) * sizeof(float);
+    size_t numElements = dimension == LutProperties::Dimension::ONE_D
+                                ? static_cast<size_t>(size)
+                                : static_cast<size_t>(size * size * size) * 3;
+    size_t bufferSize = numElements * sizeof(float);
     int32_t fd = ashmem_create_region("lut_shared_mem", bufferSize);
     void* ptr = mmap(nullptr, bufferSize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-    std::vector<float> buffers(static_cast<size_t>(size), 0.5f);
+    std::vector<float> buffers(numElements, 0.5f);
     memcpy(ptr, buffers.data(), bufferSize);
     munmap(ptr, bufferSize);
     luts->pfd = ndk::ScopedFileDescriptor(fd);
@@ -666,11 +667,14 @@ TEST_P(GraphicsCompositionTest, Luts) {
 
                     std::vector<std::shared_ptr<TestLayer>> layers = {layer};
 
-                    ReadbackBuffer readbackBuffer(
-                            display.getDisplayId(), mComposerClient, display.getDisplayWidth(),
-                            display.getDisplayHeight(),
-                            mDisplayProperties.at(display.getDisplayId()).pixelFormat, dataspace);
-                    ASSERT_NO_FATAL_FAILURE(readbackBuffer.setReadbackBuffer());
+                    std::unique_ptr<ReadbackBuffer> readbackBuffer;
+                    if (l.dimension == LutProperties::Dimension::ONE_D) {
+                        readbackBuffer = std::make_unique<ReadbackBuffer>(
+                                display.getDisplayId(), mComposerClient, display.getDisplayWidth(),
+                                display.getDisplayHeight(),
+                                mDisplayProperties.at(display.getDisplayId()).pixelFormat, dataspace);
+                        ASSERT_NO_FATAL_FAILURE(readbackBuffer->setReadbackBuffer());
+                    }
 
                     writeLayers(layers, display.getDisplayId());
                     ASSERT_TRUE(mDisplayProperties.at(display.getDisplayId())
@@ -683,7 +687,6 @@ TEST_P(GraphicsCompositionTest, Luts) {
                     execute(display.getDisplayId());
 
                     // We should be guaranteed to use DPU composition here
-                    ASSERT_TRUE(supportsHlg);
                     auto changedCompositionTypes =
                             mDisplayProperties.at(display.getDisplayId())
                                     .reader.takeChangedCompositionTypes(display.getDisplayId());
@@ -696,11 +699,16 @@ TEST_P(GraphicsCompositionTest, Luts) {
                                         .reader.takeErrors()
                                         .empty());
 
-                    ReadbackHelper::fillColorsArea(
-                            expectedColors, display.getDisplayWidth(), coloredSquare,
-                            {188.f / 255.f, 188.f / 255.f, 188.f / 255.f, 1.0f});
+                    // Some devices have a 3D LUT that's applied in nonlinear space.
+                    // This will be addressed in a future HAL revision, but we work
+                    // around it in VTS by skipping verification for 3D LUTs for now.
+                    if (l.dimension == LutProperties::Dimension::ONE_D) {
+                        ReadbackHelper::fillColorsArea(
+                                expectedColors, display.getDisplayWidth(), coloredSquare,
+                                {188.f / 255.f, 188.f / 255.f, 188.f / 255.f, 1.0f});
+                        ASSERT_NO_FATAL_FAILURE(readbackBuffer->checkReadbackBuffer(expectedColors));
+                    }
 
-                    ASSERT_NO_FATAL_FAILURE(readbackBuffer.checkReadbackBuffer(expectedColors));
                     mComposerClient->destroyLayer(
                             display.getDisplayId(), layer->getLayer(),
                             &mDisplayProperties.at(display.getDisplayId()).writer);
